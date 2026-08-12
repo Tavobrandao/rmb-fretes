@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logoImg from './assets/logo.png';
-import veiculoImg from './assets/veiculo.png'
+import veiculoImg from './assets/veiculo.png';
+import PoliticaPrivacidade from './PoliticaPrivacidade';
 
 const WhatsAppBtn = ({ text = "SOLICITE SEU ORÇAMENTO!" }) => (
   <a
@@ -17,6 +18,8 @@ const WhatsAppBtn = ({ text = "SOLICITE SEU ORÇAMENTO!" }) => (
 );
 
 export default function App() {
+  const [mostrarPolitica, setMostrarPolitica] = useState(false);
+
   const servicos = [
     { title: "Entrega de Mercadorias", desc: "Envio rápido para lojas e clientes." },
     { title: "Retirada de Compras", desc: "Buscamos suas compras em lojas ou depósitos." },
@@ -124,22 +127,47 @@ export default function App() {
         <WhatsAppBtn text="Solicitar Orçamento Agora" />
       </section>
 
-      {/* Footer com seus Créditos */}
-      <footer className="border-t border-slate-800 bg-slate-900 py-6 text-center text-slate-500 text-xs md:text-sm">
-        <p>© {new Date().getFullYear()} RMB Fretes - Todos os direitos reservados.</p>
-        <p className="mt-1">Atendimento em Manaus e Região</p>
-        <p className="mt-3 text-slate-400 font-medium">
-          Desenvolvido por{" "}
-          <a
-            href="https://github.com/Tavobrandao"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-amber-500 hover:text-amber-400 underline font-semibold transition-colors"
-          >
-            Gustavo Brandão
-          </a>
-        </p>
+      {/* Footer com Dados do Responsável Legal */}
+      <footer className="border-t border-slate-800 bg-slate-900 py-8 text-center text-slate-400 text-xs md:text-sm px-4">
+        <div className="max-w-4xl mx-auto space-y-2">
+          <p className="font-bold text-white text-base">RMB Fretes</p>
+          <p>
+            Serviço prestado de forma autônoma por <strong className="text-slate-200">Rian Moreira Brandão</strong>.
+          </p>
+          <p>
+            Documentação vinculada ao CPF: <strong className="text-slate-200">703.***.***-**</strong> | Manaus - AM
+          </p>
+          <p>
+            Contato: <strong className="text-slate-200">(92) 99166-3645</strong>
+          </p>
+
+          <div className="pt-3">
+            <button
+              onClick={() => setMostrarPolitica(true)}
+              className="text-amber-500 hover:text-amber-400 font-semibold underline transition-colors cursor-pointer"
+            >
+              Política de Privacidade
+            </button>
+          </div>
+
+          <p className="pt-4 text-slate-500 text-xs">
+            © {new Date().getFullYear()} RMB Fretes - Todos os direitos reservados. Desenvolvido por{" "}
+            <a
+              href="https://github.com/Tavobrandao"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-500 hover:text-amber-400 underline font-semibold transition-colors"
+            >
+              Gustavo Brandão
+            </a>
+          </p>
+        </div>
       </footer>
+
+      {/* Modal da Política de Privacidade */}
+      {mostrarPolitica && (
+        <PoliticaPrivacidade onClose={() => setMostrarPolitica(false)} />
+      )}
 
     </div>
   );
