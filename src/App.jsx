@@ -33,7 +33,7 @@ export default function App() {
       <header className="border-b border-slate-800 bg-slate-900/80 sticky top-0 z-50 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-4 py-4 flex flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <img src="/public/logo.jpeg" alt="RMB Fretes Logo" className="h-12 w-12 md:h-14 md:w-14 rounded-full border-2 border-amber-500 object-cover" />
+            <img src="/public/logo.jpg" alt="RMB Fretes Logo" className="h-12 w-12 md:h-14 md:w-14 rounded-full border-2 border-amber-500 object-cover" />
             <div>
               <h1 className="text-xl md:text-2xl font-black tracking-wider text-white">RMB FRETES</h1>
               <p className="text-amber-500 text-xs font-semibold tracking-widest uppercase">Frete Particular</p>
@@ -73,7 +73,7 @@ export default function App() {
 
         <div className="flex justify-center">
           <img 
-            src="/public/veiculo.png" 
+            src="/public/veiculo.jpg" 
             alt="Veículo RMB Fretes" 
             className="rounded-2xl border-2 border-slate-800 shadow-2xl max-w-full h-auto object-cover max-h-[400px]" 
           />
